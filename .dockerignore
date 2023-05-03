@@ -5,4 +5,5 @@ venv
 env
 .dockerignore
 Dockerfile
-frontend/
+frontend/.next
+frontend/node_module

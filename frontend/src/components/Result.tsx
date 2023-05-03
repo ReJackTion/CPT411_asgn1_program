@@ -80,7 +80,7 @@ export default function Result(props: ResultProps) {
                       >
                         {key}
                       </th>
-                      <td className="px-6 py-4">{value ? value : "0"}</td>
+                      {value ? <td className="px-6 py-4">value</td> : <></>}
                     </tr>
                   </>
                 ))}
