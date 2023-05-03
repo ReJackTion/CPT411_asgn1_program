@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import useTextManipulation from "../hooks/useTextManipulation";
 import { IconCopy, IconOk, IconSave } from "./Icons";
 import TextSave from "./TextSave";
+import Result from "./Result";
 import { FaSearch } from "react-icons/fa";
-import DFA_API from "../services/finder.service";
 
 interface TextManipulationProps {
   statusDM: boolean;
@@ -38,6 +38,8 @@ export default function TextManipulation(props: TextManipulationProps) {
     setTokenSaves,
     isStopWordSaves,
     setIsStopWordSaves,
+    occurrence,
+    total,
   } = useTextManipulation();
 
   return (
@@ -103,10 +105,17 @@ export default function TextManipulation(props: TextManipulationProps) {
           );
         })}
       </div>
+      <Result
+        statusDM={props.statusDM}
+        tokensSaves={tokenSaves}
+        setTokenSaves={setTokenSaves}
+        isStopWordSaves={isStopWordSaves}
+        setIsStopWordSaves={setIsStopWordSaves}
+        occurrence={occurrence}
+        total={total}
+      />
       <TextSave
         statusDM={props.statusDM}
-        textsSaves={textsSaves}
-        setTextsSaves={setTextsSaves}
         tokensSaves={tokenSaves}
         setTokenSaves={setTokenSaves}
         isStopWordSaves={isStopWordSaves}

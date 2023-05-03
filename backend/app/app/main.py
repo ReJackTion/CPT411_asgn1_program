@@ -221,13 +221,28 @@ def root(*, text: str) -> dict:
     for token in tokens:
         is_stop_words.append(dfa.is_accept(token.lower()))
 
-    join_token = " ".join(tokens)
+    word_counts = {
+        "the": 0,
+        "and": 0,
+        "a": 0,
+        "an": 0,
+        "in": 0,
+        "of": 0,
+        "to": 0,
+        "that": 0,
+        "is": 0,
+        "for": 0,
+    }
+
+    for token in tokens:
+        if token.lower() in word_counts:
+            word_counts[token.lower()] += 1
 
     return {
         "is_stop_words": is_stop_words,
-        "original_text": text,
         "tokens": tokens,
-        "join_token": join_token,
+        "occurrence": word_counts,
+        "total": sum(is_stop_words),
     }
 
 
