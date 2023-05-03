@@ -35,9 +35,3 @@ Windows Users: Having problems getting the volume to work properly? Review the f
 - [Docker on Windows - Mounting Host Directories](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c?gi=324e01b3473a)
 - [Configuring Docker for Windows Shared Drives](https://docs.microsoft.com/en-gb/archive/blogs/stevelasker/configuring-docker-for-windows-volumes)
 - You also may need to add `COMPOSE_CONVERT_WINDOWS_PATHS=1` to the environment portion of your Docker Compose file.
-
-### Mailgun setup
-
-- Signup for a free account at [mailgun](https://www.mailgun.com/)
-- Get your API Key and Domain name and set them as environment variables to match the config.py file (or use a .env in your backend/app directory)
-- Set your [authorized recipient](https://help.mailgun.com/hc/en-us/articles/217531258-Authorized-Recipients) email addresses
