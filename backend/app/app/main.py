@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import nltk
 
 # download necessary resources for tokenization once only
-# nltk.download("punkt")
+nltk.download("punkt")
 
 
 # Define the DFA
@@ -202,7 +202,7 @@ class DFA:
         return current_state in self.accept_states
 
 
-app = FastAPI(title="Recipe API", openapi_url="/openapi.json")
+app = FastAPI(title="DFA Stop Word finder API", openapi_url="/openapi.json")
 
 api_router = APIRouter()
 
