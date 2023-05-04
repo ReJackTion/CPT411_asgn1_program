@@ -35,9 +35,9 @@ export default function TextSave(props: TextSaveProps) {
               return (
                 <li
                   key={index1}
-                  className={`flex items-center p-1 justify-between ${ItemClassName}`}
+                  className={`w-full flex items-center p-1 justify-between ${ItemClassName}`}
                 >
-                  <div>
+                  <div className="w-full overflow-x-auto">
                     {token.map((word, index2) => {
                       if (props.isStopWordSaves[index1][index2]) {
                         return (
@@ -49,7 +49,11 @@ export default function TextSave(props: TextSaveProps) {
                           </small>
                         );
                       } else {
-                        return <small key={index2}>&nbsp;{word}</small>;
+                        return (
+                          <small className="" key={index2}>
+                            &nbsp;{word}
+                          </small>
+                        );
                       }
                     })}
                   </div>

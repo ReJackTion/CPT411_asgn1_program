@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { IconCopy, IconDelete } from "./Icons";
 
@@ -38,9 +38,9 @@ export default function Result(props: ResultProps) {
         <>
           <ul className="mt-2">
             <li
-              className={`flex items-center p-1 justify-between ${ItemClassName}`}
+              className={`w-full flex items-center p-1 justify-between ${ItemClassName}`}
             >
-              <div>
+              <div className="w-full overflow-x-auto">
                 {props.tokensSaves.at(-1).map((word, index2) => {
                   if (props.isStopWordSaves.at(-1)[index2]) {
                     return (
@@ -49,7 +49,11 @@ export default function Result(props: ResultProps) {
                       </small>
                     );
                   } else {
-                    return <small key={index2}>&nbsp;{word}</small>;
+                    return (
+                      <small className="" key={index2}>
+                        &nbsp;{word}
+                      </small>
+                    );
                   }
                 })}
               </div>
@@ -80,7 +84,10 @@ export default function Result(props: ResultProps) {
                       >
                         {key}
                       </th>
-                      {value ? <td className="px-6 py-4">value</td> : <></>}
+
+                      <td className="px-6 py-4">
+                        {value ? value : ("0" as any)}
+                      </td>
                     </tr>
                   </>
                 ))}
