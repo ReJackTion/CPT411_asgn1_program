@@ -28,9 +28,9 @@ export default function TextSave(props: TextSaveProps) {
         <h2 className="text-3xl">Search History</h2>
       </header>
 
-      {props.tokensSaves.length ? (
+      {props?.tokensSaves?.length ? (
         <ul className="mt-2">
-          {props.tokensSaves
+          {props?.tokensSaves
             .map((token, index1) => {
               return (
                 <li
