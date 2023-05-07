@@ -41,21 +41,28 @@ export default function Result(props: ResultProps) {
               className={`w-full flex items-center p-1 justify-between ${ItemClassName}`}
             >
               <div className="w-full overflow-x-auto">
-                {props.tokensSaves.at(-1).map((word, index2) => {
-                  if (props.isStopWordSaves.at(-1)[index2]) {
-                    return (
-                      <small key={index2} className="font-bold text-green-600">
-                        &nbsp;{word}
-                      </small>
-                    );
-                  } else {
-                    return (
-                      <small className="" key={index2}>
-                        &nbsp;{word}
-                      </small>
-                    );
-                  }
-                })}
+                {props.tokensSaves.length ? (
+                  props.tokensSaves.at(-1).map((word, index2) => {
+                    if (props?.isStopWordSaves.at(-1)[index2]) {
+                      return (
+                        <small
+                          key={index2}
+                          className="font-bold text-green-600"
+                        >
+                          &nbsp;{word}
+                        </small>
+                      );
+                    } else {
+                      return (
+                        <small className="" key={index2}>
+                          &nbsp;{word}
+                        </small>
+                      );
+                    }
+                  })
+                ) : (
+                  <></>
+                )}
               </div>
             </li>
           </ul>
