@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { IconCopy, IconDelete } from "./Icons";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 interface ResultProps {
   textsSaves?: [string];
@@ -12,6 +13,7 @@ interface ResultProps {
   setIsStopWordSaves?: (isStopWordSaves: [[boolean]]) => void;
   occurrence: any;
   total: number;
+  status: boolean;
 }
 
 export default function Result(props: ResultProps) {
@@ -22,8 +24,6 @@ export default function Result(props: ResultProps) {
   const ItemClassName = props.statusDM
     ? "bg-slate-800 hover:bg-gray-300 hover:text-black text-white"
     : "hover:bg-gray-200 text-black";
-
-  console.log("occurrence", props.occurrence);
 
   return (
     <div className={`${darkMode} my-5`}>
@@ -59,6 +59,19 @@ export default function Result(props: ResultProps) {
               </div>
             </li>
           </ul>
+          <br />
+          {props.status ? (
+            <div className="flex">
+              <small className={`${darkMode}`}>Status: Accept</small>
+              <FaThumbsUp size={12} className="mx-1 my-1" />
+            </div>
+          ) : (
+            <div className="flex">
+              <small className={`${darkMode}`}>Status: Reject</small>
+              <FaThumbsDown size={12} className="mx-1 my-1" />
+            </div>
+          )}
+          <br />
           <small className={`${darkMode}`}>
             Total stop words found: {props.total}
           </small>
