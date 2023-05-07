@@ -12,6 +12,7 @@ export default function useTextManipulation() {
   );
   const [occurrence, setoccurrence] = useState() as any;
   const [total, setTotal] = useState(0);
+  const [status, setStatus] = useState(true);
 
   function UPPERCASE(text: string) {
     setText(text.toUpperCase());
@@ -175,6 +176,7 @@ export default function useTextManipulation() {
     });
     setoccurrence(res.occurrence);
     setTotal(res.total);
+    setStatus(res.status);
   };
 
   return {
@@ -190,5 +192,6 @@ export default function useTextManipulation() {
     setIsStopWordSaves,
     occurrence,
     total,
+    status,
   };
 }

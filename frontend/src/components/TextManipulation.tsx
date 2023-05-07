@@ -40,6 +40,7 @@ export default function TextManipulation(props: TextManipulationProps) {
     setIsStopWordSaves,
     occurrence,
     total,
+    status,
   } = useTextManipulation();
 
   return (
@@ -113,6 +114,7 @@ export default function TextManipulation(props: TextManipulationProps) {
         setIsStopWordSaves={setIsStopWordSaves}
         occurrence={occurrence}
         total={total}
+        status={status}
       />
       <TextSave
         statusDM={props.statusDM}

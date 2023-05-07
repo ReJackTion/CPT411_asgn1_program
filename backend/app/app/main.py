@@ -243,6 +243,7 @@ def root(*, text: str) -> dict:
         "tokens": tokens,
         "occurrence": word_counts,
         "total": sum(is_stop_words),
+        "status": any(is_stop_words),
     }
 
 
